@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sticky Demo</title>
+  <style>
+    body { margin: 0; }
+    .services-section {
+      color: #222;
+      display: flex;
+      width: 100vw;
+      height: 300vh; /* 3 sections × 100vh */
+      background: #f9f9f9;
+      outline: 3px solid orange;
+    }
+    .left-col {
+      width: 40vw;
+      position: relative;
+      background: #fff;
+      border-right: 1px solid #ddd;
+      outline: 3px solid green;
+    }
+    .sticky-inner {
+      position: sticky !important;
+      top: 0;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #ffe;
+      border: 2px solid red;
+      outline: 3px solid blue;
+    }
+    .sticky-text {
+      opacity: 0;
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 100%;
+      transform: translateY(-50%);
+      transition: opacity 0.6s;
+      text-align: center;
+      font-size: 2rem;
+      pointer-events: none;
+    }
+    .sticky-text.active {
+      opacity: 1;
+      z-index: 2;
+      pointer-events: auto;
+    }
+    .right-col {
+      width: 60vw;
+      background: #eee;
+      outline: 3px solid purple;
+    }
+    .section {
+      height: 100vh;
+      border-bottom: 1px solid #ccc;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="services-section">
+    <div class="left-col">
+      <div class="sticky-inner">
+        <div class="sticky-text active">Sticky Text 1: Welcome</div>
+        <div class="sticky-text">Sticky Text 2: About</div>
+        <div class="sticky-text">Sticky Text 3: Services</div>
+      </div>
+    </div>
+    <div class="right-col">
+      <div class="section" style="background:#e9e9ff;">Section 1</div>
+      <div class="section" style="background:#ffe9e9;">Section 2</div>
+      <div class="section" style="background:#e9ffe9;">Section 3</div>
+    </div>
+  </div>
+  <div id="debug-panel" style="position:fixed;top:0;right:0;background:#fff;color:#222;padding:10px;z-index:10000;font-size:12px;border:1px solid #aaa;max-width:300px;max-height:80vh;overflow:auto;"></div>
+  <script>
+    // Section scroll sync
+    const sections = document.querySelectorAll('.section');
+    const stickyTexts = document.querySelectorAll('.sticky-text');
+    window.addEventListener('scroll', () => {
+      let index = 0;
+      sections.forEach((section, i) => {
+        const rect = section.getBoundingClientRect();
+        if (rect.top <= window.innerHeight / 2) {
+          index = i;
+        }
+      });
+      stickyTexts.forEach((text, i) => {
+        text.classList.toggle('active', i === index);
+      });
+    });
+    // Debug ancestor overflow/transform
+    function getAncestorProps(el) {
+      let out = [];
+      let curr = el.parentElement;
+      while (curr) {
+        const style = getComputedStyle(curr);
+        out.push({
+          tag: curr.tagName,
+          class: curr.className,
+          id: curr.id,
+          height: curr.offsetHeight,
+          overflow: style.overflow,
+          transform: style.transform
+        });
+        curr = curr.parentElement;
+      }
+      return out;
+    }
+    function updateDebugPanel() {
+      const sticky = document.querySelector('.sticky-inner');
+      const ancestors = getAncestorProps(sticky);
+      let html = `<b>Sticky Debug Panel</b><br><br>`;
+      let issues = [];
+      // Check ancestor overflow/transform
+      ancestors.forEach((a, i) => {
+        if (a.overflow && a.overflow !== 'visible') {
+          issues.push(`Ancestor #${i+1} <${a.tag.toLowerCase()}> has overflow: ${a.overflow}`);
+        }
+        if (a.transform && a.transform !== 'none') {
+          issues.push(`Ancestor #${i+1} <${a.tag.toLowerCase()}> has transform: ${a.transform}`);
+        }
+      });
+      // Check parent height
+      const parent = sticky.parentElement;
+      if (parent.offsetHeight < window.innerHeight * 3 - 10) {
+        issues.push(`Sticky parent is not tall enough: ${parent.offsetHeight}px (should be at least ${window.innerHeight*3}px for 3 sections)`);
+      }
+      // Check direct child
+      if (!parent.classList.contains('left-col')) {
+        issues.push('Sticky element is not a direct child of .left-col');
+      }
+      // Check computed styles
+      const cs = getComputedStyle(sticky);
+      if (cs.position !== 'sticky') {
+        issues.push(`Sticky element is not position: sticky (is ${cs.position})`);
+      }
+      if (cs.top !== '0px') {
+        issues.push(`Sticky element does not have top: 0 (is ${cs.top})`);
+      }
+      // Print panel
+      html += `<b>Sticky Height:</b> ${sticky.offsetHeight}px<br>`;
+      html += `<b>Parent Height:</b> ${parent.offsetHeight}px<br>`;
+      html += `<b>Ancestors:</b><br>`;
+      ancestors.forEach((a, i) => {
+        html += `#${i+1} &lt;${a.tag.toLowerCase()}&gt; class="${a.class}" id="${a.id}"<br>`;
+        html += `&nbsp;&nbsp;Height: ${a.height}px<br>`;
+        html += `&nbsp;&nbsp;Overflow: ${a.overflow}<br>`;
+        html += `&nbsp;&nbsp;Transform: ${a.transform}<br>`;
+      });
+      html += `<br><b>Computed Styles:</b><br>position: ${cs.position}<br>top: ${cs.top}<br>`;
+      if (issues.length) {
+        html += `<br><span style='color:red'><b>Sticky-breaking issues detected:</b><br>${issues.join('<br>')}</span>`;
+      } else {
+        html += `<br><span style='color:green'><b>No sticky-breaking issues detected!</b></span>`;
+      }
+      document.getElementById('debug-panel').innerHTML = html;
+      // Console log once
+      if (!window._stickyDebugged) {
+        console.log('Sticky ancestor debug:', ancestors);
+        if (issues.length) {
+          console.warn('Sticky-breaking issues detected:', issues);
+        } else {
+          console.log('No sticky-breaking issues detected.');
+        }
+        window._stickyDebugged = true;
+      }
+    }
+    window.addEventListener('DOMContentLoaded', updateDebugPanel);
+    window.addEventListener('resize', updateDebugPanel);
+    window.addEventListener('scroll', updateDebugPanel);
+  </script>
+</body>
+</html>

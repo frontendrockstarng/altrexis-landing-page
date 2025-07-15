@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ALTREXIS - Digital Agency</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/icons/favicon.png">
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <!-- Lottie -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.12.2/lottie.min.js"></script>
+    <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
+  <script type="module" src="https://unpkg.com/@splinetool/viewer@1.10.17/build/spline-viewer.js"></script>
+  <script type="module" src="https://unpkg.com/@splinetool/viewer@1.10.17/build/spline-viewer.js"></script>
+</head>
+<body>
+  <div class="site-wrapper">
+    <!-- Header will be inserted here -->
+    <div id="header">
+        <header class="site-header">
+            <nav class="main-nav">
+              <div class="logo logo-svg">
+  <a href="index.html">
+    <!-- SVG logo for ALTREXIS -->
+    <img src="assets/icons/alterix icon white.svg" alt="ALTREXIS Logo">
+  </a>
+</div>
+              <div class="nav-actions">
+                <a href="mailto:hello@altrexis.com" class="contact-btn">Contact Us</a>
+                <div class="hamburger" id="hamburger-btn">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+              </div>
+            </nav>
+            <div class="overlay-menu" id="overlay-menu">
+              <button class="close-overlay" id="close-overlay" aria-label="Close menu">&times;</button>
+              <ul class="overlay-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#contact">Contact</a></li>
+              </ul>
+            </div>
+          </header>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1 class="hero-title fade-in">We build bold brands and software that breaks through.</h1>
+            <div id="hero-isometric-stack" class="isometric-img-stack fade-in">
+              <img src="assets/images/add-box.svg" alt="Isometric Block 1" class="iso-block-img" />
+              <img src="assets/images/bottom-panel-close-2.svg" alt="Isometric Block 2" class="iso-block-img" />
+              <img src="assets/images/capture.svg" alt="Isometric Block 3" class="iso-block-img" />
+            </div>
+        </div>
+        <div class="purple-overlay fade-in">
+            <img src="assets/images/heroBottomElement.svg" alt="Purple Overlay"/>
+        </div>
+        <div class="scrolling-brand fade-in" id="scrollingBrand">ALTREXIS</div>
+    </section>
+
+
+    <!--  About us Section-->
+    <section id="about" class="about-section" style="position:relative; overflow:hidden;">
+        <canvas id="aboutGridCanvas" style="position:absolute; inset:0; width:100%; height:100%; z-index:0; display:block; background:transparent;"></canvas>
+        <div class="about-container" style="position:relative; z-index:1;">
+            <h2 class="about-fadein">About Us</h2>
+            <p class="about-fadein">At ALTREXIS, we believe in the power of bold brands and software that break through. We are a digital agency that specializes in creating innovative and engaging experiences for our clients. Our team of experts is dedicated to delivering high-quality results that exceed your expectations.</p>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services-section">
+        <div class="top-title">
+            <h2 class="slide-up-fade">Things we do well</h2>
+            <a href="mailto:hello@altrexis.com" class="contact-btn slide-up-fade">Contact Us</a>
+        </div>
+    </section>
+
+    <!-- Scroll guard to prevent horizontal scrollbars -->
+        <!-- Sticky Fade Section (Demo Imported) -->
+        <section class="sticky-fade-section">
+      <div class="sticky-fade-left">
+        <div class="sticky-fade-text fade-in">
+           <h3>Digital Product <span>Design</span></h3>
+           <p>From custom software and IT services to cloud infrastructure, data analytics, and digital transformation, we deliver tailored solutions that help businesses thrive in a fast-changing digital world.</p>
+        </div>
+        <div class="sticky-fade-text fade-in"> 
+          <h3>Web Design &  <span>Development</span></h3>
+          <p>From custom software and IT services to cloud infrastructure, data analytics, and digital transformation, we deliver tailored solutions that help businesses thrive in a fast-changing digital world.</p></div>
+        <div class="sticky-fade-text fade-in"><h3>Creative & Digital <span>Branding</span></h3>
+          <p>From custom software and IT services to cloud infrastructure, data analytics, and digital transformation, we deliver tailored solutions that help businesses thrive in a fast-changing digital world.</p>
+        </div>
+        <div class="sticky-fade-text fade-in"><h3>Data Analytics & <span>Engineering</span></h3>
+          <p>From custom software and IT services to cloud infrastructure, data analytics, and digital transformation, we deliver tailored solutions that help businesses thrive in a fast-changing digital world.</p>
+        </div>
+        <div class="sticky-fade-text fade-in"><h3>Mobile Application <span>Development</span></h3>
+          <p>From custom software and IT services to cloud infrastructure, data analytics, and digital transformation, we deliver tailored solutions that help businesses thrive in a fast-changing digital world.</p>
+        </div>
+        <!-- <div class="sticky-fade-text fade-in">Sticky Text 6</div> -->
+      </div>
+      <div class="sticky-fade-right">
+        <div class="sticky-fade-object lottie-object">
+          <dotlottie-player 
+            class="scroll-lottie"
+            src="https://lottie.host/074004f6-83bb-40dc-9d60-dc6f3e125c94/rsGUqYTtC2.lottie"
+            background="transparent" 
+            speed="1" 
+            style="width: 500px; height: 500px"
+            direction="1" 
+            playMode="normal">
+          </dotlottie-player>
+        </div>
+        <div class="sticky-fade-object lottie-object">
+  <dotlottie-player 
+    class="scroll-lottie"
+    src="https://lottie.host/5413effa-f306-4814-afa9-1f62fa15f12a/pbY8Z8QAeO.lottie"
+    background="transparent"
+    speed="1"
+    direction="1" 
+    playMode="normal"
+    style="width: 500px; height: 500px">
+
+  </dotlottie-player>
+</div>
+    <div class="sticky-fade-object lottie-object">
+      <dotlottie-player 
+        class="scroll-lottie"
+        src="https://lottie.host/b986bb41-8d0c-458c-99ca-fb9e0d8c3669/YbpJJBdzm8.lottie"
+        background="transparent"
+        speed="1"
+        style="width: 500px; height: 500px">
+      </dotlottie-player>
+  </div>
+        <div class="sticky-fade-object lottie-object">
+  <dotlottie-player 
+    class="scroll-lottie"
+    src="https://lottie.host/1f144305-7a97-481d-8d0d-13b4def27670/vVEch0mv2q.lottie"
+    background="transparent"
+    speed="1"
+    style="width: 500px; height: 500px">
+  </dotlottie-player>
+</div>
+        <div class="sticky-fade-object lottie-object">
+  <dotlottie-player 
+    class="scroll-lottie"
+    src="https://lottie.host/af2302ff-18ac-4496-bf44-3029aa4a1a70/p68dz3yKXd.lottie"
+    background="transparent"
+    speed="1"
+    style="width: 500px; height: 500px">
+  </dotlottie-player>
+</div>
+        <div class="sticky-fade-object" style="display:none">Object 6</div>
+      </div>
+      <script>
+(function() {
+  console.log("Sticky fade script running!");
+  const texts = document.querySelectorAll('.sticky-fade-text');
+  const objects = document.querySelectorAll('.sticky-fade-object');
+  const section = document.querySelector('.sticky-fade-section');
+  function getSectionTop() {
+    return section.getBoundingClientRect().top + window.scrollY;
+  }
+  function getSectionHeight() {
+    return section.offsetHeight;
+  }
+  function onScroll() {
+    // Remove .active from all, stop all lotties
+    texts.forEach(t => t.classList.remove('active'));
+    objects.forEach(o => {
+      o.classList.remove('active');
+      const lottie = o.querySelector('.scroll-lottie');
+      if (lottie && typeof lottie.stop === 'function') lottie.stop();
+    });
+    const scrollY = window.scrollY;
+    const top = getSectionTop();
+    const height = getSectionHeight();
+    const viewportH = window.innerHeight;
+    // Progress through the section (0 to 1)
+    const progress = Math.min(1, Math.max(0, (scrollY + viewportH/2 - top) / (height - viewportH)));
+    const idx = Math.min(texts.length - 1, Math.max(0, Math.round(progress * (texts.length - 1))));
+    if (texts[idx]) texts[idx].classList.add('active');
+    if (objects[idx]) {
+      objects[idx].classList.add('active');
+      const lottie = objects[idx].querySelector('.scroll-lottie');
+      if (lottie && typeof lottie.play === 'function') lottie.play();
+    }
+    //console.log("Activating index:", idx);
+  }
+  window.addEventListener('scroll', onScroll);
+  window.addEventListener('resize', onScroll);
+  onScroll();
+})();
+  </script>
+    </section>
+
+    <!-- Vision and mission section -->
+    <div class="vision-mission-outer">
+        <section id="vision-mission" class="vision-mission-section">
+        <h2>
+            <span class="former">ALT</span>
+            <span class="latter">REXIS</span>
+        </h2>
+        <div class="about-sticky">
+            <p class="about-text">
+                To be a trusted leader in delivering transformative, secure, and scalable technology solutions that enable businesses across industries to excel in the digital era.
+            </p>
+            <p class="about-text">
+                To provide expert-led technological solutions that drive innovation, streamline operations, and support sustainable business growth.
+            </p>
+        </div>
+        <script>
+            (function() {
+                // About sticky fade scroll
+                const aboutSticky = document.querySelector('.about-sticky');
+                const aboutTexts = aboutSticky ? aboutSticky.querySelectorAll('.about-text') : [];
+                const latter = document.querySelector('.latter');
+                if (aboutSticky && aboutTexts.length > 1 && latter) {
+                    function onAboutScroll() {
+                        const rect = aboutSticky.getBoundingClientRect();
+                        const winH = window.innerHeight;
+                        // Progress 0 (top in view) to 1 (bottom in view)
+                        const progress = Math.min(1, Math.max(0, (winH/2 - rect.top) / (rect.height)));
+                        let idx = 0;
+                        if (progress > 0.5) idx = 1;
+                        aboutTexts.forEach((el, i) => el.classList.toggle('active', i === idx));
+                        latter.classList.toggle('latter-active', idx === 1);
+                    }
+                    window.addEventListener('scroll', onAboutScroll);
+                    window.addEventListener('resize', onAboutScroll);
+                    onAboutScroll();
+                }
+
+                // Slide-up animation for vision-mission-section
+                const visionSection = document.querySelector('.vision-mission-section');
+                if (visionSection) {
+                    function checkInView() {
+                        const rect = visionSection.getBoundingClientRect();
+                        const winH = window.innerHeight;
+                        if (rect.top < winH * 0.85 && rect.bottom > winH * 0.15) {
+                            visionSection.classList.add('in-view');
+                        } else {
+                            visionSection.classList.remove('in-view');
+                        }
+                    }
+                    window.addEventListener('scroll', checkInView);
+                    window.addEventListener('resize', checkInView);
+                    checkInView();
+                }
+            })();
+        </script>
+    </section>
+
+    <!-- why us section - bento -->
+     <section class="why-us-section">
+      <div class="why-us-container">
+        <div class="bentoCol1 bentoColumn">
+          <div class="bentoCol1Content">
+            <div class="bento1ContentImg"><img src="../assets/images/bentoColumn1Img.svg" alt="Altrexis"></div>
+            <div class="bento1ContentText">
+              <h4>Industry-Driven Innovation</h4>
+              <p>We build using insights from fast-moving industries.</p>
+            </div>
+          </div>
+          <div class="bentoCol1Content tallestContent">
+            <div class="bento1ContentText">
+              <h4>Client-Centered Approach</h4>
+              <p>Your vision drives our process, every step of the way.</p>
+            </div>
+            <div class="bento1ContentImg"><img src="../assets/images/bentoColumn2Img.svg" alt="Altrexis">
+            </div>
+          </div>
+          <div class="bentoCol1Content lastContent">
+            <div class="bento1ContentText">
+              <h2 class="lastContentTitle">ALTREXIS</h2>
+            </div>
+          </div>
+        </div>
+        <div class="bentoCol2 bentoColumn">
+          <div class="bentoCol1Content tallestContent" id="noBottomCol">
+            <div class="bento1ContentText">
+              <h4>Expert-Led Consultancy</h4>
+              <p>Led by seasoned specialists who understand your product goals.</p>
+            </div>
+            <div class="bento1ContentImg" id="midCol2Img"><img src="../assets/images/bentoCol2img1.svg" alt="Altrexis">
+            </div>
+          </div>
+          <div class="bentoCol1Content lastContent" id="midCol2">
+            <div class="bento1ContentText">
+              <h2 class="lastContentTitle">Why choose us</h2>
+            </div>
+          </div>
+          <div class="bentoCol1Content">
+            <div class="bento1ContentText" id="lastCol2">
+              <p id="lastCol2Text">The future of your product & business is in safe hands</p>
+              <a href="mailto:hello@altrexis.com" class="contact-btn slide-up-fade" id="lastCol2Btn">Let’s build that future now</a>
+            </div>
+          </div> 
+        </div>
+        <div class="bentoCol3 bentoColumn">
+          <div class="bentoCol1Content tallestContent" id="noBottomCol">
+            <div class="bento1ContentText">
+              <h4>Scalable & Secure Solutions</h4>
+              <p>Security and scale are baked into every layer we build.</p>
+            </div>
+            <div class="bento1ContentImg" id="lastCol2Img"><img src="../assets/images/bento3rdColImg1.svg" alt="Altrexis">
+            </div>
+          </div>
+          <div class="bentoCol1Content">
+            <div class="bento1ContentImg" id="lastCol2BtmImg"><img src="../assets/images/bento3rdBtmImg.svg" alt="Altrexis"></div>
+            <div class="bento1ContentText">
+              <h4>End-to-End Support</h4>
+              <p>From ideation to deployment — and beyond.</p>
+            </div>
+          </div>
+         
+        </div>
+      </div>
+     </section>
+
+     <!-- Team Section -->
+    <section id="team-carousel-section" class="team-carousel-section">
+        <h2 class="team-carousel-title">Meet Our Team</h2>
+        <div class="team-carousel-outer">
+          <div class="team-carousel-track">
+            <div class="team-carousel-card">
+              <img src="assets/images/Dummy Avi.png" alt="Jane Doe" class="team-carousel-img">
+              <div class="team-carousel-info">
+                <h3>Jane Doe</h3>
+                <p>Lead Designer</p>
+              </div>
+            </div>
+            <div class="team-carousel-card">
+              <img src="assets/images/Dummy Avi.png" alt="John Smith" class="team-carousel-img">
+              <div class="team-carousel-info">
+                <h3>John Smith</h3>
+                <p>Frontend Developer</p>
+              </div>
+            </div>
+            <div class="team-carousel-card">
+              <img src="assets/images/Dummy Avi.png" alt="Maria Lee" class="team-carousel-img">
+              <div class="team-carousel-info">
+                <h3>Maria Lee</h3>
+                <p>Project Manager</p>
+              </div>
+            </div>
+            <div class="team-carousel-card">
+              <img src="assets/images/Dummy Avi.png" alt="Alex Kim" class="team-carousel-img">
+              <div class="team-carousel-info">
+                <h3>Alex Kim</h3>
+                <p>UI/UX Specialist</p>
+              </div>
+            </div>
+            <div class="team-carousel-card">
+              <img src="assets/images/Dummy Avi.png" alt="Priya Patel" class="team-carousel-img">
+              <div class="team-carousel-info">
+                <h3>Priya Patel</h3>
+                <p>Backend Engineer</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    <!-- Footer -->
+    <footer id="parallax-footer" class="fullscreen-footer parallax-footer ">
+      <div class="top-footer">
+        <div class="lets-talk fade-in">
+          <h2>Let's talk</h2>
+          <a href="mailto:hello@altrexis.com" class="contact-btn slide-up-fade" id="footer-cta">hello@altrexis.com</a>
+        </div>
+      </div>
+      <div class="footer-brand-giant fade-in"><h2>ALTREXIS</h2></div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/main.js"></script>
+    <script src="js/gsap-animations.js"></script>
+    <script src="js/lottie-init.js"></script>
+    <script src="js/custom-cursor.js"></script>
+    <script src="js/about-fadein.js"></script>
+    <script src="js/about-grid-canvas.js"></script>
+    <script src="js/hero-isometric-stack.js"></script>
+    <script src="js/scroll-lottie-observer.js"></script>
+    <script src="js/team-carousel.js"></script>
+    <script src="js/team-carousel-anim.js"></script>
+    <script src="js/footer-parallax.js"></script>
+</body>
+</html>
