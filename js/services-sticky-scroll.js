@@ -50,6 +50,8 @@ document.addEventListener('DOMContentLoaded', function () {
         const containerRect = scrollContainer.getBoundingClientRect();
         const containerTop = containerRect.top + window.scrollY;
         const sectionHeight = window.innerHeight;
+        // === Scroll speed multiplier (1 = default, <1 = faster, >1 = slower) ===
+        const scrollSpeedMultiplier = 1; // 1 = 1:1 scroll-to-section ratio
         // Calculate scroll progress within the container
         const scrollY = window.scrollY;
         const relativeScroll = scrollY - containerTop;
@@ -57,7 +59,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const minScroll = 0;
         const maxScroll = sectionHeight * (sections.length - 1);
         const clampedScroll = Math.max(minScroll, Math.min(maxScroll, relativeScroll));
-        const newActiveIndex = Math.round(clampedScroll / sectionHeight);
+        const newActiveIndex = Math.round(clampedScroll / (sectionHeight * scrollSpeedMultiplier));
         const clampedIndex = Math.max(0, Math.min(sections.length - 1, newActiveIndex));
         if (clampedIndex !== currentActiveIndex) {
             currentActiveIndex = clampedIndex;

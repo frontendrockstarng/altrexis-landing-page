@@ -496,7 +496,7 @@ html, body {
   flex-direction: row;
   width: 100vw;
   min-height: 100vh;
-  height: 600vh;
+  height: 500vh;
   background: var(--background-color);
   position: relative;
   margin: 0;
