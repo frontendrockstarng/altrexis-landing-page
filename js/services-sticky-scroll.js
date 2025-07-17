@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const containerTop = containerRect.top + window.scrollY;
         const sectionHeight = window.innerHeight;
         // === Scroll speed multiplier (1 = default, <1 = faster, >1 = slower) ===
-        const scrollSpeedMultiplier = 1; // 1 = 1:1 scroll-to-section ratio
+        const scrollSpeedMultiplier = 0.05; // very fast switching, almost instant per scroll
         // Calculate scroll progress within the container
         const scrollY = window.scrollY;
         const relativeScroll = scrollY - containerTop;

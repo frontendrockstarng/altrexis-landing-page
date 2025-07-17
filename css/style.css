@@ -490,6 +490,22 @@ html, body {
 
 
 
+/* Hide custom cursor on mobile devices (below 320px and up to 768px) */
+@media (max-width: 768px) {
+  .custom-cursor,
+  .cursor-dot,
+  .cursor-outline {
+    display: none !important;
+  }
+}
+@media (max-width: 319px) {
+  .custom-cursor,
+  .cursor-dot,
+  .cursor-outline {
+    display: none !important;
+  }
+}
+
 /* Sticky Fade Section Styles */
 .sticky-fade-section {
   display: flex;
