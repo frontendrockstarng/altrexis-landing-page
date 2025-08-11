@@ -280,28 +280,33 @@ html, body {
     height: 10px;
     background: #fff;
     border-radius: 50%;
-    pointer-events: none;
-    z-index: 99999;
-    transform: translate3d(-50%, -50%, 0);
-    transition: background 0.2s;
-    opacity: 1;
-    will-change: transform;
-    box-shadow: 0 0 10px 2px #fff, 0 0 30px 8px #fff4;
 }
 
+/* Hide custom cursor on medium and mobile devices (up to 1032px) */
+@media (max-width: 1032px) {
+#cursor-dot,
+#cursor-outline {
+display: none !important;
+}
+html, body {
+cursor: auto !important;
+}
+}
 
 #cursor-outline {
-    position: fixed;
-    top: 0; left: 0;
-    width: 4rem;
-    height: 4rem;
-    border: 2.5px solid #fff;
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: 99998;
-    transform: translate3d(-50%, -50%, 0);
-    transition: border-color 0.2s;
-    opacity: 1;
+position: fixed;
+top: 0; left: 0;
+width: 4rem;
+height: 4rem;
+border: 2.5px solid #fff;
+border-radius: 50%;
+pointer-events: none;
+z-index: 99998;
+transform: translate3d(-50%, -50%, 0);
+transition: border-color 0.2s;
+opacity: 1;
+will-change: transform;
+box-shadow: 0 0 18px 4px #fff3;
     will-change: transform;
     box-shadow: 0 0 18px 4px #fff3;
 }
