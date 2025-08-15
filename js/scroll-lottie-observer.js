@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       });
     }, {
-      threshold: 0.5 // 50% of element must be visible
+      threshold: 1 // 50% of element must be visible
     });
     observer.observe(lottiePlayer);
   });

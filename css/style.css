@@ -512,6 +512,7 @@ box-shadow: 0 0 18px 4px #fff3;
 }
 
 /* Sticky Fade Section Styles */
+/* Sticky Fade Section Styles */
 .sticky-fade-section {
   display: flex;
   flex-direction: row;
@@ -593,6 +594,7 @@ box-shadow: 0 0 18px 4px #fff3;
   background: var(--background-color);
   overflow: visible;
 }
+
 
 .sticky-fade-object {
   position: absolute !important;
@@ -755,6 +757,13 @@ box-shadow: 0 0 18px 4px #fff3;
   z-index: 2 !important;
 }
 
+/* DIAGNOSTIC: Remove sticky-breaking properties from all ancestors */
+html, .sticky-fade-section, .sticky-fade-section  {
+  overflow: visible !important;
+  transform: none !important;
+  filter: none !important;
+  contain: none !important;
+}
 /* DIAGNOSTIC: Remove sticky-breaking properties from all ancestors */
 html, .sticky-fade-section, .sticky-fade-section  {
   overflow: visible !important;
