@@ -13,9 +13,11 @@
     <!-- GSAP -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-    <!-- Lottie -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.12.2/lottie.min.js"></script>
-    <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
+    <!-- Lottie Animation Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script>
+    <script src="js/lottie-hover.js"></script>
   <script type="module" src="https://unpkg.com/@splinetool/viewer@1.10.17/build/spline-viewer.js"></script>
   <script type="module" src="https://unpkg.com/@splinetool/viewer@1.10.17/build/spline-viewer.js"></script>
 </head>
@@ -68,7 +70,6 @@
         <div class="scrolling-brand fade-in" id="scrollingBrand">ALTREXIS</div>
     </section>
 
-
     <!--  About us Section-->
     <section id="about" class="about-section" style="position:relative; overflow:hidden;">
         <canvas id="aboutGridCanvas" style="position:absolute; inset:0; width:100%; height:100%; z-index:0; display:block; background:transparent;"></canvas>
@@ -85,10 +86,78 @@
             <a href="mailto:hello@altrexis.com" class="contact-btn slide-up-fade">Contact Us</a>
         </div>
     </section>
+    
+    
+      <div class="sticky-parent">
+        <div class="sticky">
+          <div class="horizontal"> 
+            <div class="dim">
+              <div class="text-side fade-in">
+                <h3>Software & Digital Product <span>Development</span></h3>
+                <p>At Altrexis, we design and build powerful digital solutions that solve real business problems. Whether you're starting with an idea or scaling an existing product, our expert team helps you turn technology into a competitive edge.</p>
+             </div>
+             <div class="animWrapper">
+              <div id="animation1" class="service-anim"></div>
+            </div>
+            </div>
+            <div class="dim">
+              <div class="text-side fade-in">
+                <h3>Data Analysis & <span>Engineering</span></h3>
+                <p>Whether you're managing large volumes of data or just getting started, we build the tools and systems you need to unlock its full value. Our team specializes in designing modern, secure data infrastructure,  built to scale, built to last.</p>
+             </div>
+             <div class="animWrapper">
+              <div id="animation2" class="service-anim"></div>
+            </div>
+            </div>
+
+            <div class="dim">
+              <div class="text-side fade-in">
+                <h3>Product & Experience <span>Design</span></h3>
+                <p>We shape ideas into intuitive products and memorable experiences that connect with people and create lasting value. Whether it’s a digital platform, a service, or a customer journey, we design with clarity, purpose, and impact.</p>
+             </div>
+             <div class="animWrapper">
+              <div id="animation3" class="service-anim"></div>
+            </div>
+            </div>
+            <div class="dim">
+              <div class="text-side fade-in">
+                <h3>Branding & Creative <span>Services</span></h3>
+                <p>Your brand is more than just a logo,  it's how people feel when they interact with your business. At Altrexis, we help you craft a strong, memorable brand that builds trust, tells your story, and sets you apart in today’s crowded digital world.</p>
+             </div>
+             <div class="animWrapper">
+              <div id="animation4" class="service-anim"></div>
+            </div>
+            </div>
+            <div class="dim">
+              <div class="text-side fade-in">
+                <h3>Digital 2D & 3D <span>Design</span></h3>
+                <p>From interactive 3D models to fully immersive AR/VR environments, we help you capture attention, explain complex ideas, and deliver unforgettable experiences across digital platforms.</p>
+             </div>
+             <div class="animWrapper">
+              <div id="animation5" class="service-anim"></div>
+            </div>
+            </div>
+            <div class="dim">
+              <div class="text-side fade-in">
+                <h3>Information Security & <span> Risk Management</span></h3>
+                <p>In today’s interconnected world, information security is not a luxury,  it’s a necessity. At Altrexis, we help you defend your organization’s most valuable assets with comprehensive, tailored solutions that reduce risk, ensure continuity, and maintain compliance.</p>
+             </div>
+             <dotlottie-player 
+             class="scroll-lottie"
+             src="https://lottie.host/5413effa-f306-4814-afa9-1f62fa15f12a/pbY8Z8QAeO.lottie"
+             background="transparent"
+             speed="1"
+             direction="1" 
+             playMode="normal"
+             style="width: 500px; height: 500px">
+           </dotlottie-player>
+            </div>
+          </div>
+        </div>
+      </div>
 
     <!-- Scroll guard to prevent horizontal scrollbars -->
-        <!-- Sticky Fade Section (Demo Imported) -->
-        <section class="sticky-fade-section">
+        <!-- Sticky Fade Section (Demo Imported) -->        <!-- <section class="sticky-fade-section">
       <div class="sticky-fade-left">
         <div class="sticky-fade-text fade-in">
            <h3>Software & Digital Product <span>Development</span></h3>
@@ -128,7 +197,7 @@
           </dotlottie-player>
         </div>
         <div class="sticky-fade-object lottie-object">
-  <dotlottie-player 
+          <dotlottie-player 
     class="scroll-lottie"
     src="https://lottie.host/5413effa-f306-4814-afa9-1f62fa15f12a/pbY8Z8QAeO.lottie"
     background="transparent"
@@ -136,7 +205,6 @@
     direction="1" 
     playMode="normal"
     style="width: 500px; height: 500px">
-
   </dotlottie-player>
 </div>
     <div class="sticky-fade-object lottie-object">
@@ -166,49 +234,10 @@
     style="width: 500px; height: 500px">
   </dotlottie-player>
 </div>
-        <div class="sticky-fade-object" style="display:none">Object 6</div>
-      </div>
-      <script>
-(function() {
-  console.log("Sticky fade script running!");
-  const texts = document.querySelectorAll('.sticky-fade-text');
-  const objects = document.querySelectorAll('.sticky-fade-object');
-  const section = document.querySelector('.sticky-fade-section');
-  function getSectionTop() {
-    return section.getBoundingClientRect().top + window.scrollY;
-  }
-  function getSectionHeight() {
-    return section.offsetHeight;
-  }
-  function onScroll() {
-    // Remove .active from all, stop all lotties
-    texts.forEach(t => t.classList.remove('active'));
-    objects.forEach(o => {
-      o.classList.remove('active');
-      const lottie = o.querySelector('.scroll-lottie');
-      if (lottie && typeof lottie.stop === 'function') lottie.stop();
-    });
-    const scrollY = window.scrollY;
-    const top = getSectionTop();
-    const height = getSectionHeight();
-    const viewportH = window.innerHeight;
-    // Progress through the section (0 to 1)
-    const progress = Math.min(1, Math.max(0, (scrollY + viewportH/2 - top) / (height - viewportH)));
-    const idx = Math.min(texts.length - 1, Math.max(0, Math.round(progress * (texts.length - 1))));
-    if (texts[idx]) texts[idx].classList.add('active');
-    if (objects[idx]) {
-      objects[idx].classList.add('active');
-      const lottie = objects[idx].querySelector('.scroll-lottie');
-      if (lottie && typeof lottie.play === 'function') lottie.play();
-    }
-    //console.log("Activating index:", idx);
-  }
-  window.addEventListener('scroll', onScroll);
-  window.addEventListener('resize', onScroll);
-  onScroll();
-})();
-  </script>
-    </section>
+      <!-- <div class="sticky-fade-object" style="display:none">Object 6</div> -->
+      <!-- </div>
+     
+         </section>  -->
 
     <!-- Vision and mission section -->
     <div class="vision-mission-outer">
@@ -391,7 +420,10 @@
 
     <!-- JavaScript -->
     <script src="js/main.js"></script>
+    <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script>
+    <script src="js/normal-lottie.js"></script>
     <script src="js/gsap-animations.js"></script>
+    <script src="js/scroll-horizontal.js"></script>
     <script src="js/lottie-init.js"></script>
     <script src="js/custom-cursor.js"></script>
     <script src="js/about-fadein.js"></script>
@@ -401,5 +433,23 @@
     <script src="js/team-carousel.js"></script>
     <script src="js/team-carousel-anim.js"></script>
     <script src="js/footer-parallax.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="js/gsap-animations.js"></script>
+    <script src="js/scroll-lottie-observer.js"></script>
+    <script src="js/scroll-horizontal.js"></script>
+    <script src="js/services-sticky-scroll.js"></script>
+    <script>
+        // Mobile menu toggle
+        document.getElementById('hamburger-btn').addEventListener('click', function() {
+            document.getElementById('overlay-menu').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+
+        document.getElementById('close-overlay').addEventListener('click', function() {
+            document.getElementById('overlay-menu').classList.remove('active');
+            document.body.style.overflow = '';
+        });
+    </script>
 </body>
 </html>
