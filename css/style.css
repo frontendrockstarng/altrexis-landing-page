@@ -2275,9 +2275,9 @@ padding-bottom: 0;
 .dim{
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  padding: 8% 12% 8% 12%;
+  justify-content: center;
+  align-items: center;
+  padding: 16% 12% 8% 12%;
   /* background: var(--gb-grad); */
   min-width: 50vw;
   height: 100vh;
