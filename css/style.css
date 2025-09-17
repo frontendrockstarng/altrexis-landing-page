@@ -1375,10 +1375,11 @@ padding-bottom: 0;
     font-size: 0.8rem;
   }
   .dim{
-    justify-content: center!important;
-    align-items: center!important;
+    justify-content: flex-start!important;
+    align-items: flex-start!important;
     width: 100vw!important;
-    padding: 12% !important;
+    padding-left: 12% !important;
+    padding-top: 32%!important;
   }
 
   .horizontal{
