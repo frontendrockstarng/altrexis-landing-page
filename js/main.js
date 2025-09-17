@@ -87,14 +87,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Component initialization function
 function initializeComponents() {
-    // Inject header and footer from components if present
-    fetch('components/header.html')
-      .then(res => res.text())
-      .then(html => {
-        const header = document.querySelector('#header');
-        if (header) header.innerHTML = html;
-        setupOverlayMenu(); // re-bind overlay after injection
-      });
+    // Only setup overlay menu since we have static header
+    setupOverlayMenu();
+    
+    // Only load footer component if needed
     fetch('components/footer.html')
       .then(res => res.text())
       .then(html => {
@@ -117,7 +113,7 @@ function getHeaderHTML() {
                 <ul class="nav-links">
                     <li><a href="#home">Home</a></li>
                     <li><a href="#services">Services</a></li>
-                    <li><a href="#portfolio">Portfolio</a></li>
+                     <li><a href="#team">Team</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
@@ -126,9 +122,15 @@ function getHeaderHTML() {
 }
 
 function setupOverlayMenu() {
-    const hamburger = document.querySelector('#hamburger-btn');
-    const overlay = document.querySelector('#overlay-menu');
-    const closeBtn = document.querySelector('#close-overlay');
+    const hamburger = document.getElementById('hamburger-btn');
+    const closeBtn = document.getElementById('close-overlay');
+    const overlay = document.getElementById('overlay-menu');
+    const navLinks = document.querySelectorAll('.overlay-links a');
+
+    const closeMenu = () => {
+        overlay.classList.remove('active');
+        document.body.style.overflow = '';
+    };
 
     if (hamburger && overlay) {
         hamburger.addEventListener('click', () => {
@@ -136,17 +138,20 @@ function setupOverlayMenu() {
             document.body.style.overflow = 'hidden';
         });
     }
+
     if (closeBtn && overlay) {
-        closeBtn.addEventListener('click', () => {
-            overlay.classList.remove('active');
-            document.body.style.overflow = '';
-        });
+        closeBtn.addEventListener('click', closeMenu);
     }
-    // Close overlay on ESC key
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && overlay && overlay.classList.contains('active')) {
-            overlay.classList.remove('active');
-            document.body.style.overflow = '';
+
+    // Close menu when clicking on navigation links
+    navLinks.forEach(link => {
+        link.addEventListener('click', closeMenu);
+    });
+
+    // Close menu when clicking outside
+    overlay?.addEventListener('click', (e) => {
+        if (e.target === overlay) {
+            closeMenu();
         }
     });
 }
