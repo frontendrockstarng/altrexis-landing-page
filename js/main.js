@@ -76,12 +76,19 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('resize', onResize);
     onResize();
     // Enable horizontal scroll with mouse wheel (carousel-like)
-    teamOuter.addEventListener('wheel', function (e) {
-      if (e.deltaY !== 0) {
-        e.preventDefault();
-        this.scrollLeft += e.deltaY;
-      }
-    }, { passive: false });
+    // --- Lazy Load Background Images ---
+    const lazyBackgrounds = document.querySelectorAll('.vision-mission-section, .fullscreen-footer');
+    const bgObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('bg-loaded');
+          bgObserver.unobserve(entry.target);
+        }
+      });
+    }, {
+      rootMargin: '200px' // Start loading slightly before they enter viewport
+    });
+    lazyBackgrounds.forEach(bg => bgObserver.observe(bg));
   }
 });
 
